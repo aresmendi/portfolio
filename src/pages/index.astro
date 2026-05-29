@@ -1,0 +1,60 @@
+---
+// pages/ → Cada archivo aquí es una ruta.
+// index.astro → /
+// about.astro → /about
+// proyectos.astro → /proyectos
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SkillsSection from "../components/SkillsSection.astro";
+import AboutSection from "../components/AboutSection.astro";
+import ContactSection from "../components/ContactSection.astro";
+
+// Los datos del portfolio van aquí por ahora.
+// Más adelante los moveremos a src/data/projects.js
+const projects = [
+  {
+    title: "OhMyFreezer",
+    description: "Aplicación de gestión de inventario de congelador. Backend desplegado en Render con base de datos TiDB en la nube.",
+    techs: ["Java", "TiDB", "Render"],
+    url: "https://github.com/aresmendi/OhMyFreezer",
+    videoUrl: "https://www.youtube.com/embed/4VFTvFH971U",
+  },
+  {
+    title: "Broken Links Detector",
+    description: "Herramienta de consola que crawlea un sitio web, detecta enlaces rotos (404/410) con multithreading y exporta los resultados a CSV. Inspirada en herramientas como Screaming Frog.",
+    techs: ["Python", "Multithreading", "Web Scraping"],
+    url: "https://github.com/aresmendi/Broken-Links-Detector",
+  },
+  {
+    title: "Prácticas — DacGroup",
+    description: "Desarrollo de herramientas internas: app de normalización y procesamiento de autotarifas a CSV, scripts de scraping con Requests, Selenium y Playwright, y scripts de extracción de datos de bases de datos.",
+    techs: ["Python", "Selenium", "Playwright", "Requests"],
+    url: undefined,
+  },
+];
+---
+
+<BaseLayout title="Ares | Desarrollador">
+  <main class="px-10">
+    <Hero />
+
+    <section id="proyectos" class="pb-20">
+      <h2 class="text-2xl font-semibold mb-6">Proyectos</h2>
+      {projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          techs={project.techs}
+          url={project.url}
+          videoUrl={project.videoUrl}
+        />
+      ))}
+    </section>
+
+    <AboutSection />
+    <SkillsSection />
+    <ContactSection />
+  </main>
+</BaseLayout>

@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  techs: string[];
+  url?: string;
+  videoUrl?: string;
+}
+
+const { title, description, techs, url, videoUrl } = Astro.props;
+---
+
+<article class="p-6 rounded-xl border border-neutral-800 hover:border-neutral-600 transition-colors">
+  <h3 class="text-lg font-semibold mb-2">{title}</h3>
+  <p class="text-neutral-400 text-sm mb-4 leading-relaxed">{description}</p>
+
+  {videoUrl && (
+    <div class="mb-4 rounded-lg overflow-hidden aspect-video">
+      <iframe
+        src={videoUrl}
+        title={`Demo de ${title}`}
+        class="w-full h-full"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+    </div>
+  )}
+
+  <ul class="flex flex-wrap gap-2 mb-4">
+    {techs.map((tech) => (
+      <li class="px-2 py-1 text-xs rounded-md bg-neutral-800 text-neutral-300">{tech}</li>
+    ))}
+  </ul>
+
+  {url && (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-sm text-indigo-400 hover:text-indigo-300 transition-colors"
+    >
+      Ver en GitHub →
+    </a>
+  )}
+</article>

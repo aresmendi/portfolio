@@ -1,0 +1,44 @@
+---
+const links = [
+  {
+    label: "GitHub",
+    href: "https://github.com/aresmendi",
+    detail: "@aresmendi",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/ares-caballero",
+    detail: "ares-caballero",
+  },
+  {
+    label: "Email",
+    href: "mailto:arescaballero96@hotmail.com",
+    detail: "arescaballero96@hotmail.com",
+  },
+];
+---
+
+<section id="contacto" class="pb-20">
+  <h2 class="text-2xl font-semibold mb-3">Contacto</h2>
+  <p class="text-neutral-400 mb-8">
+    Estoy buscando mi primera oportunidad laboral. Si tenés algo interesante, escribime.
+  </p>
+
+  <ul class="flex flex-col gap-3">
+    {links.map((link) => (
+      <li>
+        <a
+          href={link.href}
+          target={link.label !== "Email" ? "_blank" : undefined}
+          rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
+          class="flex items-center justify-between px-5 py-4 rounded-xl border border-neutral-800 hover:border-indigo-500 hover:bg-neutral-900 transition-colors group"
+        >
+          <span class="font-medium">{link.label}</span>
+          <span class="text-sm text-neutral-500 group-hover:text-neutral-300 transition-colors">
+            {link.detail}
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>

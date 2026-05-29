@@ -1,0 +1,73 @@
+---
+const links = [
+  {
+    label: "GitHub",
+    href: "https://github.com/aresmendi",
+    icon: "gh",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/ares-caballero",
+    icon: "li",
+  },
+  {
+    label: "arescaballero96@hotmail.com",
+    href: "mailto:arescaballero96@hotmail.com",
+    icon: "mail",
+  },
+];
+---
+
+<section id="inicio" class="relative py-20">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-indigo-600/10 to-transparent pointer-events-none" aria-hidden="true"></div>
+
+  <div class="flex items-center gap-6 mb-6">
+    <img
+      src="/foto.jpeg"
+      alt="Ares Caballero"
+      class="w-20 h-20 rounded-full object-cover border-2 border-neutral-700"
+    />
+    <div>
+      <p class="text-indigo-400 font-mono mb-1">Hola, soy</p>
+      <h1 class="text-5xl font-bold tracking-tight">Ares Caballero</h1>
+    </div>
+  </div>
+  <p class="text-xl text-neutral-400 max-w-xl mb-10">
+    Desarrollador multiplataforma enfocado en backend, datos y automatización.
+  </p>
+
+  <ul class="flex flex-wrap gap-4">
+    {links.map((link) => (
+      <li>
+        <a
+          href={link.href}
+          target={link.icon !== "mail" ? "_blank" : undefined}
+          rel={link.icon !== "mail" ? "noopener noreferrer" : undefined}
+          class="flex items-center gap-2 px-4 py-2 rounded-lg border border-neutral-700 text-sm text-neutral-300 hover:border-indigo-500 hover:text-white transition-colors"
+        >
+          {link.label}
+        </a>
+      </li>
+    ))}
+    <li>
+      <a
+        href="/cv.pdf"
+        download="CV_Ares_Caballero.pdf"
+        class="flex items-center gap-2 px-4 py-2 rounded-lg border border-indigo-500 bg-indigo-500/10 text-sm text-indigo-300 hover:bg-indigo-500/20 hover:text-white transition-colors"
+      >
+        Descargar CV
+      </a>
+    </li>
+    <li>
+      <a
+        href="/cv.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-2 px-4 py-2 rounded-lg border border-neutral-700 text-sm text-neutral-300 hover:border-indigo-500 hover:text-white transition-colors"
+      >
+        Ver CV online
+      </a>
+    </li>
+  </ul>
+</section>

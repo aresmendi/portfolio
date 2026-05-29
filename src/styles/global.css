@@ -1,0 +1,24 @@
+/*
+  styles/ → CSS global: reset, variables, tipografía base.
+  Se importa UNA SOLA VEZ en BaseLayout.astro.
+  Los estilos específicos de un componente van dentro del propio .astro con <style>.
+*/
+
+/* Tailwind v4: este import activa todo — reset (preflight) + utilidades */
+@import "tailwindcss";
+
+/* Variables de diseño del portfolio — accesibles en todo el proyecto */
+@theme {
+  --color-bg: #0f0f0f;
+  --color-text: #e5e5e5;
+  --color-accent: #6366f1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
