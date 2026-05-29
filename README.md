@@ -14,15 +14,6 @@ Portfolio web personal desarrollado con **Astro** y **Tailwind CSS**.
 - **Broken Links Detector** — herramienta CLI para detectar enlaces rotos con multithreading (Python)
 - **Prácticas DacGroup** — scripts de scraping y procesamiento de datos (Python, Selenium, Playwright)
 
-## Desarrollo local
-
-```bash
-npm install
-npm run dev
-```
-
-Abre [localhost:4321](http://localhost:4321) en el navegador.
-
 ## Contacto
 
 - GitHub: [@aresmendi](https://github.com/aresmendi)
